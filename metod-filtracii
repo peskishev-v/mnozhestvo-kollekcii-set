@@ -1,0 +1,44 @@
+public static void filterLaptops(Set<Laptop> laptops, Map<String, Object> filters) {
+    List<Laptop> filteredLaptops = new ArrayList<>();
+    for (Laptop laptop : laptops) {
+        boolean match = true;
+        for (Map.Entry<String, Object> entry : filters.entrySet()) {
+            String key = entry.getKey();
+            Object value = entry.getValue();
+            switch (key) {
+                case "ram":
+                    if (laptop.getRam() < (int) value) {
+                        match = false;
+                    }
+                    break;
+                case "storage":
+                    if (laptop.getStorage() < (int) value) {
+                        match = false;
+                    }
+                    break;
+                case "os":
+                    if (!laptop.getOs().equals(value)) {
+                        match = false;
+                    }
+                    break;
+                case "color":
+                    if (!laptop.getColor().equals(value)) {
+                        match = false;
+                    }
+                    break;
+            }
+        }
+        if (match) {
+            filteredLaptops.add(laptop);
+        }
+    }
+
+    if (filteredLaptops.isEmpty()) {
+        System.out.println("Ноутбуки, удовлетворяющие выбранным критериям, не найдены.");
+    } else {
+        System.out.println("Результаты поиска:");
+        for (Laptop laptop : filteredLaptops) {
+            System.out.println(laptop.getModel() + " (" + laptop.getManufacturer() + "): " + laptop.getPrice() + " USD");
+        }
+    }
+}
