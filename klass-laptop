@@ -1,0 +1,47 @@
+public class Laptop {
+    private String model;
+    private String manufacturer;
+    private int ram;
+    private int storage;
+    private String os;
+    private String color;
+    private double price;
+
+    public Laptop(String model, String manufacturer, int ram, int storage, String os, String color, double price) {
+        this.model = model;
+        this.manufacturer = manufacturer;
+        this.ram = ram;
+        this.storage = storage;
+        this.os = os;
+        this.color = color;
+        this.price = price;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public String getManufacturer() {
+        return manufacturer;
+    }
+
+    public int getRam() {
+        return ram;
+    }
+
+    public int getStorage() {
+        return storage;
+    }
+
+    public String getOs() {
+        return os;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+}
